@@ -1,4 +1,5 @@
 import 'package:craft_bay/presentation/ui/screens/splash_screen.dart';
+import 'package:craft_bay/presentation/ui/utility/app_theme_data.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 class CratfyBay extends StatelessWidget {
@@ -7,6 +8,7 @@ class CratfyBay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  GetMaterialApp(
+      theme: AppThemeData.lightThemeData,
       debugShowCheckedModeBanner: false,
       home:Splash_Screen(),
     );
