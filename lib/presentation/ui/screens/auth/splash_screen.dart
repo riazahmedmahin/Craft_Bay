@@ -1,4 +1,4 @@
-import 'package:craft_bay/presentation/ui/screens/verity_email_screen.dart';
+import 'package:craft_bay/presentation/ui/screens/auth/verity_email_screen.dart';
 import 'package:craft_bay/presentation/ui/widgets/app_logo.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
