@@ -1,5 +1,6 @@
 import 'package:craft_bay/presentation/ui/utility/assets_path.dart';
 import 'package:craft_bay/presentation/ui/widgets/home/banner_carousel.dart';
+import 'package:craft_bay/presentation/ui/widgets/home/section_title.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/home/circle_icon_botton.dart';
@@ -20,6 +21,11 @@ class HomeScreen extends StatelessWidget {
               search_text_feild,
               SizedBox(height: 16,),
               BannerCarousel(),
+              SizedBox(height: 16,),
+              SectionTitle(title: "All Category", onTapSeeall: (){
+              }),
+
+
             ],
 
           ),
