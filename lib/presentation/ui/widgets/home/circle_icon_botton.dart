@@ -13,6 +13,7 @@ class circle_icon_botton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
+      borderRadius: BorderRadius.circular(15),
       child: CircleAvatar(
         backgroundColor: Colors.grey.shade300,
         child: Icon(iconData,color: Colors.grey,size: 20,),
