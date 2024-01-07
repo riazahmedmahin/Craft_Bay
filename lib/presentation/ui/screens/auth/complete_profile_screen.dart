@@ -83,7 +83,7 @@ class CompleteProfileScreen extends StatelessWidget {
                   onPressed: () {
                      Get.offAll(MainBottomNavScreen());
                   },
-                  child: const Text('Next'),
+                  child: const Text('Complete'),
                 ),
               ),
             ],
