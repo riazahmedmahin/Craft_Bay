@@ -23,7 +23,7 @@ class _BannerCarouselState extends State<BannerCarousel> {
         CarouselSlider(
           options: CarouselOptions(height: widget.height?? 180.0,
           onPageChanged: (index,reason){
-
+            _currentIndex.value=index;
           },
           viewportFraction: 1,
             autoPlay: true,
