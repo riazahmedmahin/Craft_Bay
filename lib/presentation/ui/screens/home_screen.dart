@@ -1,8 +1,9 @@
+
 import 'package:craft_bay/presentation/ui/utility/assets_path.dart';
 import 'package:craft_bay/presentation/ui/widgets/home/banner_carousel.dart';
 import 'package:craft_bay/presentation/ui/widgets/home/section_title.dart';
 import 'package:flutter/material.dart';
-
+import '../widgets/category_item.dart';
 import '../widgets/home/circle_icon_botton.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -24,16 +25,38 @@ class HomeScreen extends StatelessWidget {
               SizedBox(height: 16,),
               SectionTitle(title: "All Category", onTapSeeall: (){
               }),
+              category_list,
+              SectionTitle(title: "popular", onTapSeeall: (){
+
+              }),
+
+
 
 
             ],
-
           ),
         ),
       ),
     );
   }
 
+  SizedBox get category_list {
+    return SizedBox(
+              height: 130,
+              child: ListView.separated(
+                scrollDirection: Axis.horizontal,
+                shrinkWrap: true,
+                primary: false,
+                itemCount: 10,
+                itemBuilder: ( context, index) {
+                    return CategoryItem();
+                  },
+                separatorBuilder: ( _, __ ) {
+                    return SizedBox(width: 8,);
+                },
+              ),
+            );
+  }
 
   TextFormField get search_text_feild {
     return TextFormField(
