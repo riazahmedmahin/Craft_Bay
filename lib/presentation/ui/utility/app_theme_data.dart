@@ -61,6 +61,11 @@ class AppThemeData {
           style: TextButton.styleFrom(
             foregroundColor: AppColors.primaryColor,
           )
-      )
+      ),
+    appBarTheme: AppBarTheme(
+        titleTextStyle: TextStyle(fontSize: 18, color: Colors.black),
+        backgroundColor: Colors.white,
+        elevation: 5
+    )
   );
 }

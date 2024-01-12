@@ -1,11 +1,11 @@
 
 import 'package:craft_bay/presentation/state_holders/main_bottom_nav_controller.dart';
+import 'package:craft_bay/presentation/ui/screens/product_list_screen.dart';
 import 'package:craft_bay/presentation/ui/utility/assets_path.dart';
 import 'package:craft_bay/presentation/ui/widgets/home/banner_carousel.dart';
 import 'package:craft_bay/presentation/ui/widgets/home/section_title.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../utility/app_colors.dart';
 import '../widgets/category_item.dart';
 import '../widgets/home/circle_icon_botton.dart';
 import '../widgets/product_card_item.dart';
@@ -32,6 +32,7 @@ class HomeScreen extends StatelessWidget {
               }),
               category_list,
               SectionTitle(title: "Popular", onTapSeeall: (){
+                Get.to(ProductListScreen());
               }),
               popular_list,
               SizedBox(height: 8,),
