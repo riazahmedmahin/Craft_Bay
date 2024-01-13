@@ -1,6 +1,6 @@
 import 'package:craft_bay/presentation/state_holders/main_bottom_nav_controller.dart';
 import 'package:craft_bay/presentation/ui/utility/app_colors.dart';
-import 'package:craft_bay/presentation/ui/utility/assets_path.dart';
+import 'package:craft_bay/presentation/ui/widgets/carts/carts_products_item.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -24,66 +24,14 @@ class CartsScreen extends StatelessWidget {
         body: Column(
           children: [
             Expanded(
-              child: Column(
-                children: [
-                  Card(
-                    child: Row(
-                      children: [
-                        Image.asset(AssetsPath.dammyshoe,width: 100,),
-                        SizedBox(width: 8,),
-                        Expanded(
-                          child: Column(
-                            children: [
-                              Row(
-                                children: [
-                                  Expanded(
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          'Nike shoe 12ksm 2021 Edition asfdsfjksdf jdsjf kdkf j asdasd s',
-                                          maxLines: 1,
-                                          style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w600,
-                                            color: Colors.black54,
-                                            overflow: TextOverflow.ellipsis,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                        Row(
-                          children: [
-                            IconButton(onPressed: (){},
-                                icon: Icon(Icons.delete))
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Text(
-                              '\$100',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w600,
-                                color: AppColors.primaryColor,
-                              ),
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-
-                  )
-                ],
-              ),
+              child: ListView.separated(
+                  itemCount: 5,
+                  itemBuilder: (context,index){
+                    return CartProductItem();
+                  },
+                  separatorBuilder: (_,__){
+                    return SizedBox(height: 8,);
+                  }, )
             ),
             priceandchecksection
           ],
