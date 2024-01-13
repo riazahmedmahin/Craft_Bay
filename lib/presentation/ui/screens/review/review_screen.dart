@@ -34,7 +34,7 @@ class ReviewScreen extends StatelessWidget {
                     return SizedBox(height: 8,);
                   }, )
             ),
-            priceandchecksection
+            reviresection,
           ],
         ),
         floatingActionButton: FloatingActionButton(
@@ -48,7 +48,7 @@ class ReviewScreen extends StatelessWidget {
     );
   }
 
-  SizedBox get priceandchecksection {
+  SizedBox get reviresection {
     return SizedBox(
       height: 120,
       child: Column(
