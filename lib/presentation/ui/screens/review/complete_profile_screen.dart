@@ -24,7 +24,6 @@ class CreateReviewScreen extends StatelessWidget {
               const SizedBox(
                 height: 48,
               ),
-
               const SizedBox(
                 height: 16,
               ),
@@ -54,7 +53,7 @@ class CreateReviewScreen extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                     Get.offAll(MainBottomNavScreen());
+
                   },
                   child: const Text('Submit'),
                 ),
