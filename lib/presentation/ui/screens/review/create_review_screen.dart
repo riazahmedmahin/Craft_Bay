@@ -1,5 +1,6 @@
 import 'package:craft_bay/presentation/ui/screens/auth/verity_OTP_screen.dart';
 import 'package:craft_bay/presentation/ui/screens/main_bottom_nav_screen.dart';
+import 'package:craft_bay/presentation/ui/screens/review/review_screen.dart';
 import 'package:craft_bay/presentation/ui/widgets/app_logo.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,7 +14,7 @@ class CreateReviewScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("Create Review"),
         leading: IconButton(onPressed: (){
-
+         Get.to(ReviewScreen());
         }, icon: Icon(Icons.arrow_back_ios)),
       ),
       body: SingleChildScrollView(
@@ -22,7 +23,7 @@ class CreateReviewScreen extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(
-                height: 48,
+                height: 25,
               ),
               const SizedBox(
                 height: 16,
@@ -42,7 +43,7 @@ class CreateReviewScreen extends StatelessWidget {
                 height: 16,
               ),
               TextFormField(
-                maxLines: 5,
+                maxLines: 10,
                 decoration: const InputDecoration(hintText: 'Write Review'),
                 textInputAction: TextInputAction.done,
               ),

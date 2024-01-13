@@ -1,6 +1,8 @@
 
 import 'package:craft_bay/presentation/state_holders/main_bottom_nav_controller.dart';
 import 'package:craft_bay/presentation/ui/screens/product_list_screen.dart';
+import 'package:craft_bay/presentation/ui/screens/review/create_review_screen.dart';
+import 'package:craft_bay/presentation/ui/screens/review/review_screen.dart';
 import 'package:craft_bay/presentation/ui/utility/assets_path.dart';
 import 'package:craft_bay/presentation/ui/widgets/home/banner_carousel.dart';
 import 'package:craft_bay/presentation/ui/widgets/home/section_title.dart';
@@ -115,9 +117,13 @@ class HomeScreen extends StatelessWidget {
     return AppBar(
       title: Image.asset(AssetsPath.logonav),
       actions: [
-        circle_icon_botton(onTap: (){}, iconData: Icons.person),
+        circle_icon_botton(onTap: (){
+          Get.to(CreateReviewScreen());
+        }, iconData: Icons.person),
         SizedBox(width: 8,),
-        circle_icon_botton(onTap: (){}, iconData: Icons.call),
+        circle_icon_botton(onTap: (){
+          Get.to(ReviewScreen());
+        }, iconData: Icons.call),
         SizedBox(width: 8,),
         circle_icon_botton(onTap: (){}, iconData: Icons.notifications_active_outlined),
         SizedBox(width: 8,),
