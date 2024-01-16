@@ -1,4 +1,5 @@
 import 'package:craft_bay/presentation/state_holders/main_bottom_nav_controller.dart';
+import 'package:craft_bay/presentation/ui/screens/home_screen.dart';
 import 'package:craft_bay/presentation/ui/screens/review/create_review_screen.dart';
 import 'package:craft_bay/presentation/ui/utility/app_colors.dart';
 import 'package:craft_bay/presentation/ui/widgets/carts/carts_products_item.dart';
@@ -13,6 +14,9 @@ class ReviewScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Reviews"),
+        leading: IconButton(onPressed: (){
+          Get.offAll(()=>HomeScreen());
+        }, icon: Icon(Icons.arrow_back_ios)),
       ),
       body: Column(
         children: [
