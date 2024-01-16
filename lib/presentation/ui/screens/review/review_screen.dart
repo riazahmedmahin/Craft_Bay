@@ -10,37 +10,31 @@ class ReviewScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PopScope(
-      canPop: false,
-      onPopInvoked: (_){
-        //Get.find<MainBottomNabController>().BackToHome();
-      },
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text("Reviews"),
-        ),
-        body: Column(
-          children: [
-            Expanded(
-                child: ListView.separated(
-                  itemCount: 5,
-                  itemBuilder: (context,index){
-                    return CartProductItem();
-                  },
-                  separatorBuilder: (_,__){
-                    return SizedBox(height: 8,);
-                  }, )
-            ),
-            reviresection,
-          ],
-        ),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: AppColors.primaryColor,
-          onPressed: (){
-            Get.to(CreateReviewScreen());
-          },
-          child: Icon(Icons.add),
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Reviews"),
+      ),
+      body: Column(
+        children: [
+          Expanded(
+              child: ListView.separated(
+                itemCount: 5,
+                itemBuilder: (context,index){
+                  return CartProductItem();
+                },
+                separatorBuilder: (_,__){
+                  return SizedBox(height: 8,);
+                }, )
+          ),
+          reviresection,
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: AppColors.primaryColor,
+        onPressed: (){
+          Get.to(CreateReviewScreen());
+        },
+        child: Icon(Icons.add),
       ),
     );
   }
