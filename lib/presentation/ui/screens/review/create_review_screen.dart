@@ -23,7 +23,7 @@ class CreateReviewScreen extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(
-                height: 25,
+                height: 20,
               ),
               const SizedBox(
                 height: 16,
