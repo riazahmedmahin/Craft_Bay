@@ -8,5 +8,5 @@ class ResponseData {
       {required this.isSuccess,
       required this.StatusCode,
       required this.responseData,
-       this.errorMessage = 'something is wrong'});
+      this.errorMessage = 'something is wrong'});
 }
