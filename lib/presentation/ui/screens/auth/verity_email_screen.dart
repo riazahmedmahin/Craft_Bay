@@ -1,3 +1,4 @@
+import 'package:craft_bay/presentation/state_holders/send_email_otp_controller.dart';
 import 'package:craft_bay/presentation/ui/screens/auth/verity_OTP_screen.dart';
 import 'package:craft_bay/presentation/ui/widgets/app_logo.dart';
 import 'package:flutter/material.dart';
@@ -61,15 +62,38 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                 const SizedBox(
                   height: 24,
                 ),
-                SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      if (_formKey.currentState!.validate())
-                      Get.to(VerifyOTPScreen());
-                    },
-                    child: const Text('Next'),
-                  ),
+                GetBuilder<SendEmailOtpController>(
+                  builder: (controller) {
+                    return SizedBox(
+                      width: double.infinity,
+                      child: Visibility(
+                        visible: controller.inProgress==false,
+                        replacement: Center(
+                          child: CircularProgressIndicator(),
+                        ),
+                        child: ElevatedButton(
+                          onPressed: () async {
+                            if (_formKey.currentState!.validate()){
+                              final bool result = await controller.sendOtpToEmail(_emailTEController.text.trim());
+                              if(result){
+                                Get.to(()=>VerifyOTPScreen());
+                              }
+                              else{
+                                Get.showSnackbar(GetSnackBar(
+                                  title: "send OTP failed",
+                                  message: controller.errorMessage,
+                                  duration: Duration(seconds: 2),
+                                  isDismissible: true
+                                ));
+                              }
+                            }
+
+                          },
+                          child: const Text('Next'),
+                        ),
+                      ),
+                    );
+                  }
                 ),
               ],
             ),
