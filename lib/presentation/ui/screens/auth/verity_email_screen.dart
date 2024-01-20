@@ -76,7 +76,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                             if (_formKey.currentState!.validate()){
                               final bool result = await controller.sendOtpToEmail(_emailTEController.text.trim());
                               if(result){
-                                Get.to(()=>VerifyOTPScreen());
+                                Get.to(()=>VerifyOTPScreen(email: _emailTEController.text.trim(),));
                               }
                               else{
                                 Get.showSnackbar(GetSnackBar(
