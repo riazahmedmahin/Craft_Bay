@@ -1,5 +1,7 @@
+import 'package:craft_bay/presentation/state_holders/main_bottom_nav_controller.dart';
 import 'package:craft_bay/presentation/state_holders/verify_otp_controller.dart';
 import 'package:craft_bay/presentation/ui/screens/auth/complete_profile_screen.dart';
+import 'package:craft_bay/presentation/ui/screens/main_bottom_nav_screen.dart';
 import 'package:craft_bay/presentation/ui/utility/app_colors.dart';
 import 'package:craft_bay/presentation/ui/utility/app_theme_data.dart';
 import 'package:craft_bay/presentation/ui/widgets/app_logo.dart';
@@ -94,23 +96,24 @@ class _VerifyOTPScreenState extends State<VerifyOTPScreen> {
                         ),
                         child: ElevatedButton(
                           onPressed: () async {
-                            if(_formKey.currentState!.validate());
-                            {
-                              final bool response = await verifyOtpController.VerityOtp(widget.email, _OtpTEController.text);
-                            if(response){
-                              Get.to(()=>CompleteProfileScreen());
+                            if (_formKey.currentState!.validate()) {
+                              final bool response = await verifyOtpController.verifyOtp(
+                                  widget.email, _OtpTEController.text);
+                              if (response) {
+                                if (verifyOtpController.shouldNavigateCompleteProfile) {
+                                  Get.to(() => const CompleteProfileScreen());
+                                } else {
+                                  Get.offAll(() => const MainBottomNavScreen());
+                                }
+                              } else {
+                                Get.showSnackbar(GetSnackBar(
+                                  title: 'OTP verification failed',
+                                  message: verifyOtpController.errorMassage,
+                                  duration: const Duration(seconds: 2),
+                                  isDismissible: true,
+                                ));
+                              }
                             }
-                            else{
-                              Get.showSnackbar(GetSnackBar(
-                                title: "OTP verification failed",
-                                message: verifyOtpController.errorMassage,
-                                duration: Duration(seconds: 2),
-                                isDismissible: true,
-                              ));
-                            }
-                            }
-
-                            //Get.offAll(CompleteProfileScreen());
                           },
                           child: const Text('Next'),
                         ),
