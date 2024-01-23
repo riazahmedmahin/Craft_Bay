@@ -1,5 +1,7 @@
 
+import 'package:craft_bay/presentation/state_holders/auth_controller.dart';
 import 'package:craft_bay/presentation/state_holders/main_bottom_nav_controller.dart';
+import 'package:craft_bay/presentation/ui/screens/auth/verity_email_screen.dart';
 import 'package:craft_bay/presentation/ui/screens/product_list_screen.dart';
 import 'package:craft_bay/presentation/ui/screens/review/create_review_screen.dart';
 import 'package:craft_bay/presentation/ui/screens/review/review_screen.dart';
@@ -117,8 +119,9 @@ class HomeScreen extends StatelessWidget {
     return AppBar(
       title: Image.asset(AssetsPath.logonav),
       actions: [
-        circle_icon_botton(onTap: (){
-          Get.to(CreateReviewScreen());
+        circle_icon_botton(onTap: () async{
+          await Get.find<AuthController>().clearAuthData();
+          Get.offAll(()=>VerifyEmailScreen);
         }, iconData: Icons.person),
         SizedBox(width: 8,),
         circle_icon_botton(onTap: (){
